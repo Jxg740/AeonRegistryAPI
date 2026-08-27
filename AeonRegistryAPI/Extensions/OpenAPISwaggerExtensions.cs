@@ -1,4 +1,5 @@
 ﻿using Microsoft.OpenApi;
+using System.Reflection.Metadata;
 
 namespace AeonRegistryAPI.Extensions
 {
@@ -51,11 +52,8 @@ namespace AeonRegistryAPI.Extensions
                 });
 
                 c.AddSecurityRequirement(doc => new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecuritySchemeReference("Bearer"),
-                        new List<string>()
-                    }                        
+                {                    
+                    [new OpenApiSecuritySchemeReference("bearer", doc)] = []
                 });
 
             });
